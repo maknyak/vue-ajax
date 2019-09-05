@@ -1,5 +1,5 @@
 <template>
   <main class="row">
-    <div class="col-sm-12">Login Page</div>
+    <div class="col-md-12">Dashboard</div>
   </main>
 </template>
