@@ -1,10 +1,17 @@
 <template>
   <div class="admin-layout">
-    <div class="text-center">Admin</div>
-    <router-view/>
+    <navbar/>
+    <main class="main">
+      <router-view/>
+    </main>
   </div>
 </template>
 
 <script>
-
+import Navbar from '../components/Navbar'
+export default {
+  components: {
+    Navbar
+  }
+}
 </script>
