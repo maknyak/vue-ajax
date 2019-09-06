@@ -6,6 +6,12 @@ $sidebar-active-color: $primary;
 $sidebar-hover-bg: $white;
 $sidebar-hover-color: $primary;
 
+.main {
+  padding-left: $sidebar-width;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
 .sidebar {
   background-color: $sidebar-bg;
   height: 100%;
@@ -58,3 +64,4 @@ $sidebar-hover-color: $primary;
     }
   }
 }
+
