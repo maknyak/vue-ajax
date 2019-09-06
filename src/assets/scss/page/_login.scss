@@ -30,47 +30,96 @@
     vertical-align: middle;
 
     .box-login {
-      background-color: #fff;
-      width: 370px;
+      display: flex;
       margin: 0 auto;
-      padding: 30px 20px 30px;
+      width: 350px;
+      box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.12);
 
-      .title-login {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .tagline-login {
-        color: $gray-600;
-        margin-bottom: 35px;
+      @include media-breakpoint-up(sm) {
+        width: 570px;
       }
 
       @include media-breakpoint-up(md) {
-        width: 430px;
-        padding: 30px 35px 45px;
+        width: 620px;
+      }
+
+      .left-login {
+        background: #ff0000;
+        width: 220px;
+        display: none;
+
+        @include media-breakpoint-up(sm) {
+          display: block;
+        }
+      }
+
+      .right-login {
+        background: #ffffff;
+        padding: 20px 50px 50px;
+        width: 350px;
 
         .title-login {
-          font-size: 1.8rem;
+          font-size: 1.5rem;
+          font-weight: bold;
           margin-bottom: 10px;
-          padding-top: 10px;
+        }
+
+        .tagline-login {
+          color: $gray-600;
+          margin-bottom: 25px;
+        }
+
+        @include media-breakpoint-up(md) {
+          width: 400px;
+
+          .title-login {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            padding-top: 10px;
+          }
         }
       }
     }
 
-    .box-footer-login {
-      background-color: #fff;
-      border-top: 1px solid #ddd;
-      width: 370px;
-      margin: 0 auto;
-      padding: 30px 20px 30px;
-
-      @include media-breakpoint-up(md) {
-        width: 430px;
-        padding: 15px 35px 15px;
-      }
-    }
+    //.box-login {
+    //  background-color: #fff;
+    //  width: 370px;
+    //  margin: 0 auto;
+    //  padding: 30px 35px 45px;
+    //
+    //  .title-login {
+    //    font-size: 1.5rem;
+    //    font-weight: bold;
+    //    margin-bottom: 10px;
+    //  }
+    //
+    //  .tagline-login {
+    //    color: $gray-600;
+    //    margin-bottom: 35px;
+    //  }
+    //
+    //  @include media-breakpoint-up(md) {
+    //    width: 430px;
+    //
+    //    .title-login {
+    //      font-size: 1.8rem;
+    //      margin-bottom: 10px;
+    //      padding-top: 10px;
+    //    }
+    //  }
+    //}
+    //
+    //.box-footer-login {
+    //  background-color: #fff;
+    //  border-top: 1px solid #ddd;
+    //  width: 370px;
+    //  margin: 0 auto;
+    //  padding: 15px 35px 15px;
+    //
+    //  @include media-breakpoint-up(md) {
+    //    width: 430px;
+    //    padding: 15px 35px 15px;
+    //  }
+    //}
   }
 }
-
-
