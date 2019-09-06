@@ -5,7 +5,7 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item right>Dokumentasi</b-nav-item>
+          <b-nav-item right href="http://10.14.204.20/internal/eact/icon-eact-new-web">Dokumentasi</b-nav-item>
           <b-nav-item-dropdown right>
             <template slot="button-content">Jhon Doe</template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
