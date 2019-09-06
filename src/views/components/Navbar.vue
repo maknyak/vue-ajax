@@ -8,8 +8,8 @@
           <b-nav-item right href="http://10.14.204.20/internal/eact/icon-eact-new-web">Dokumentasi</b-nav-item>
           <b-nav-item-dropdown right>
             <template slot="button-content">Jhon Doe</template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <b-dropdown-item href="#">Profil</b-dropdown-item>
+            <b-dropdown-item href="/login">Keluar</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
