@@ -47,6 +47,7 @@
         background: #ff0000;
         width: 220px;
         display: none;
+        border-radius: 5px 0 0 5px;
 
         @include media-breakpoint-up(sm) {
           display: block;
@@ -55,8 +56,9 @@
 
       .right-login {
         background: #ffffff;
-        padding: 20px 50px 50px;
+        padding: 20px 50px 75px;
         width: 350px;
+        border-radius: 0 5px 5px 0;
 
         .title-login {
           font-size: 1.5rem;
