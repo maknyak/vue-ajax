@@ -4,12 +4,12 @@
       <card>
         <template slot="card-header-title">Master Pengguna</template>
         <div slot="card-body" class="card-body">
-          <button class="btn btn-primary">Buat Baru</button>
+          <button class="btn btn-primary" @click="addUser">Buat Baru</button>
           <div class="form-inline mb-3 float-right">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Nama Pengguna">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button" id="button-addon2">
+                <button class="btn btn-primary" type="button">
                   <i class="fa fa-search fa-fw"></i>
                 </button>
               </div>
@@ -18,7 +18,8 @@
 
           <b-table bordered responsive id="my-table" :fields="fields" :items="items" :per-page="perPage" :current-page="currentPage">
             <template slot="action" slot-scope="scope">
-              <a href="#">Ubah</a> | <a href="#" @click.prevent="deletePengguna(scope.index)">Hapus</a>
+              <a href="#" @click.prevent="updateUser(scope.item.id)">Ubah</a> |
+              <a href="#" @click.prevent="deleteUser(scope.item.id)">Hapus</a>
             </template>
           </b-table>
           <div class="text-right">
@@ -27,6 +28,24 @@
         </div>
       </card>
     </div>
+
+    <b-modal id="modal-user" title="Form Pengguna" centered ok-only :no-close-on-backdrop="true" @ok="saveUser" ok-title="Simpan">
+      <div class="form-group row">
+        <label for="firstname" class="col-sm-4 col-form-label">Nama Depan</label>
+        <div class="col-sm-8">
+          <input type="hidden" v-model="id">
+          <input type="text" name="firstname" class="form-control" id="firstname" v-model="firstname" v-validate="'required'">
+          <div class="invalid-feedback">{{ errors.first('firstname') }}</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname" class="col-sm-4 col-form-label">Nama Belakang</label>
+        <div class="col-sm-8">
+          <input type="text" name="lastname" class="form-control" id="lastname" v-model="lastname" v-validate="'required'">
+          <div class="invalid-feedback">{{ errors.first('lastname') }}</div>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -43,30 +62,67 @@ export default {
   },
   data: function () {
     return {
+      id: 0,
+      firstname: '',
+      lastname: '',
       perPage: 3,
       currentPage: 1,
       fields: [
         { key: 'id', label: '#' },
-        { key: 'first_name', label: 'Nama Depan' },
-        { key: 'last_name', label: 'Nama Belakang' },
+        { key: 'firstname', label: 'Nama Depan' },
+        { key: 'lastname', label: 'Nama Belakang' },
         { key: 'action', label: 'Aksi', thClass: 'text-center', tdClass: 'text-center' }
       ],
       items: [
-        { id: 1, first_name: 'Fred', last_name: 'Flintstone' },
-        { id: 2, first_name: 'Wilma', last_name: 'Flintstone' },
-        { id: 3, first_name: 'Barney', last_name: 'Rubble' },
-        { id: 4, first_name: 'Betty', last_name: 'Rubble' },
-        { id: 5, first_name: 'Pebbles', last_name: 'Flintstone' },
-        { id: 6, first_name: 'Bamm Bamm', last_name: 'Rubble' },
-        { id: 7, first_name: 'The Great', last_name: 'Gazzoo' },
-        { id: 8, first_name: 'Rockhead', last_name: 'Slate' },
-        { id: 9, first_name: 'Pearl', last_name: 'Slaghoople' }
+        { id: 1, firstname: 'Fred', lastname: 'Flintstone' },
+        { id: 2, firstname: 'Wilma', lastname: 'Flintstone' },
+        { id: 3, firstname: 'Barney', lastname: 'Rubble' },
+        { id: 4, firstname: 'Betty', lastname: 'Rubble' },
+        { id: 5, firstname: 'Pebbles', lastname: 'Flintstone' },
+        { id: 6, firstname: 'Bamm Bamm', lastname: 'Rubble' },
+        { id: 7, firstname: 'The Great', lastname: 'Gazzoo' },
+        { id: 8, firstname: 'Rockhead', lastname: 'Slate' },
+        { id: 9, firstname: 'Pearl', lastname: 'Slaghoople' }
       ]
     }
   },
   methods: {
-    deletePengguna: function (index) {
+    addUser: function () {
+      this.id = 0
+      this.firstname = ''
+      this.lastname = ''
+      this.$bvModal.show('modal-user')
+    },
+    updateUser: function (id) {
+      const index = id - 1
+      this.id = this.items[index].id
+      this.firstname = this.items[index].firstname
+      this.lastname = this.items[index].lastname
+      this.$bvModal.show('modal-user')
+    },
+    deleteUser: function (id) {
+      const index = id - 1
       this.items.splice(index, 1)
+    },
+    saveUser: function (e) {
+      e.preventDefault()
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          if (this.id === 0) {
+            this.items.push({
+              id: this.items.length + 1,
+              firstname: this.firstname,
+              lastname: this.lastname
+            })
+          } else {
+            const index = this.id - 1
+            this.items[index].firstname = this.firstname
+            this.items[index].lastname = this.lastname
+          }
+
+          this.$bvModal.hide('modal-user')
+        }
+      })
     }
   }
 }
