@@ -8,12 +8,8 @@
         <slot name="card-header-action"></slot>
       </div>
     </div>
-    <div class="table-responsive">
-      <slot name="card-body"></slot>
-    </div>
-    <div class="card-footer text-right">
-      <slot name="card-footer"></slot>
-    </div>
+    <slot name="card-body"></slot>
+    <slot name="card-footer"></slot>
   </div>
 </template>
 

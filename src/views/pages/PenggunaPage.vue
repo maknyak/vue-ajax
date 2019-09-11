@@ -3,10 +3,11 @@
     <div class="col-md-12">
       <card>
         <template slot="card-header-title">Master Pengguna</template>
-        <template slot="card-header-action">
-          <div class="form-inline">
-            <div class="input-group input-group-sm">
-              <input type="text" class="form-control" placeholder="Kata kunci">
+        <div slot="card-body" class="card-body">
+          <button class="btn btn-primary">Buat Baru</button>
+          <div class="form-inline mb-3 float-right">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Nama Pengguna">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button" id="button-addon2">
                   <i class="fa fa-search fa-fw"></i>
@@ -15,20 +16,15 @@
             </div>
           </div>
 
-          <button class="btn btn-primary btn-sm mx-1">
-            <i class="fa fa-plus"></i>
-          </button>
-        </template>
-        <div slot="card-body" class="card-body">
-          <b-table bordered id="my-table" :fields="fields" :items="items" :per-page="perPage" :current-page="currentPage">
+          <b-table bordered responsive id="my-table" :fields="fields" :items="items" :per-page="perPage" :current-page="currentPage">
             <template slot="action" slot-scope="scope">
               <a href="#">Ubah</a> | <a href="#" @click.prevent="deletePengguna(scope.index)">Hapus</a>
             </template>
           </b-table>
+          <div class="text-right">
+            <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" class="d-inline-flex mb-0"></b-pagination>
+          </div>
         </div>
-        <template slot="card-footer">
-          <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" class="d-inline-flex mb-0"></b-pagination>
-        </template>
       </card>
     </div>
   </div>
@@ -53,7 +49,7 @@ export default {
         { key: 'id', label: '#' },
         { key: 'first_name', label: 'Nama Depan' },
         { key: 'last_name', label: 'Nama Belakang' },
-        { key: 'action', label: 'Aksi' }
+        { key: 'action', label: 'Aksi', thClass: 'text-center', tdClass: 'text-center' }
       ],
       items: [
         { id: 1, first_name: 'Fred', last_name: 'Flintstone' },
