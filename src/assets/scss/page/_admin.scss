@@ -5,6 +5,7 @@ $sidebar-active-bg: $white;
 $sidebar-active-color: $primary;
 $sidebar-hover-bg: $white;
 $sidebar-hover-color: $primary;
+$sidebar-border-color: $border-color;
 
 .main {
   padding-left: $sidebar-width;
@@ -14,6 +15,7 @@ $sidebar-hover-color: $primary;
 
 .sidebar {
   background-color: $sidebar-bg;
+  border-right: 1px solid $sidebar-border-color;
   height: 100%;
   width: $sidebar-width;
   position: fixed;
@@ -22,7 +24,6 @@ $sidebar-hover-color: $primary;
   top: 0;
   left: 0;
   z-index: 1;
-  box-shadow: 6px 16px 31px -18px #b7bcd1;
 
   .sidebar-nav {
     list-style: none;
