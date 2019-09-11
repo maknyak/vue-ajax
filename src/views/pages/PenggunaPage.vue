@@ -19,13 +19,13 @@
             <i class="fa fa-plus"></i>
           </button>
         </template>
-        <template slot="card-body">
-          <b-table id="my-table" :fields="fields" :items="items" :per-page="perPage" :current-page="currentPage">
+        <div slot="card-body" class="card-body">
+          <b-table bordered id="my-table" :fields="fields" :items="items" :per-page="perPage" :current-page="currentPage">
             <template slot="action" slot-scope="scope">
               <a href="#">Ubah</a> | <a href="#" @click.prevent="deletePengguna(scope.index)">Hapus</a>
             </template>
           </b-table>
-        </template>
+        </div>
         <template slot="card-footer">
           <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" class="d-inline-flex mb-0"></b-pagination>
         </template>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand navbar-dark bg-primary sticky-top">
+  <nav class="navbar navbar-expand navbar-light bg-white sticky-top border-bottom">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Admin Dashboard</a>
 
