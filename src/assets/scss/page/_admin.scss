@@ -1,6 +1,6 @@
 $sidebar-width: 250px;
 $sidebar-bg: $white;
-$sidebar-color: $gray-500;
+$sidebar-color: $gray-700;
 $sidebar-active-bg: $white;
 $sidebar-active-color: $primary;
 $sidebar-hover-bg: $white;
@@ -22,6 +22,7 @@ $sidebar-hover-color: $primary;
   top: 0;
   left: 0;
   z-index: 1;
+  box-shadow: 6px 16px 31px -18px #b7bcd1;
 
   .sidebar-nav {
     list-style: none;
@@ -32,7 +33,7 @@ $sidebar-hover-color: $primary;
       &.sidebar-nav-title {
         color: $sidebar-color;
         font-size: $font-size-sm;
-        padding: 15px 25px 5px;
+        padding: 15px 20px 5px;
         text-transform: capitalize;
         font-weight: bold;
       }
@@ -52,7 +53,7 @@ $sidebar-hover-color: $primary;
 
       > a {
         display: block;
-        padding: 5px 25px;
+        padding: 5px 20px;
         text-decoration: none;
         color: $sidebar-color;
 
