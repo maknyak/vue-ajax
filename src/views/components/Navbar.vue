@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand navbar-light bg-white sticky-top border-bottom">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Admin Dashboard</a>
+      <a class="navbar-brand" href="#">Backoffice</a>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
