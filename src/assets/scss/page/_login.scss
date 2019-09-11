@@ -18,10 +18,7 @@
     top: 0;
     left: 0;
     background: #005bea;
-    background: -webkit-linear-gradient(bottom, #005bea, #00c6fb);
-    background: -o-linear-gradient(bottom, #005bea, #00c6fb);
-    background: -moz-linear-gradient(bottom, #005bea, #00c6fb);
-    background: linear-gradient(bottom, #005bea, #00c6fb);
+    background: linear-gradient(to bottom, #005bea, #00c6fb);
     opacity: 0.9;
   }
 
